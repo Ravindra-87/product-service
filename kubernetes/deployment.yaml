@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  jenkins-gke-project
+  namespace: pro-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins-gke-project
+  template:
+    metadata:
+      labels:
+        app: jenkins-gke-project
+    spec:
+      # Use the Kubernetes Service Account (KSA)with Workload Identity
+      serviceAccountName: ksa  # Ensure this matches your KSA name
+      containers:
+        # Spring Boot application container
+        - name: jenkins-gke-project
+          image: asia-east1-docker.pkg.dev/jenkins-gke-project-457719/gc-artifact-repo/jenkins-gke-project:tag_version
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          env:
+            - name: DB_HOST
+              value: "127.0.0.1"  # Cloud SQL Proxy will listen on localhost
+            - name: DB_PORT
+              value: "3306"  # MySQL default port
+            - name: INSTANCE_CONNECTION_NAME
+              value: jenkins-gke-project-457719:us-central1:jenkins-gke-project-1
+            - name: DB_NAME
+              value: "all-users-db" # Your database name in Cloud SQL
+            - name: DB_USER
+              value: "ravi"  #Your database user in Cloud SQL
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                 name: secret-db-password
+                 key: secret-db-password-key
