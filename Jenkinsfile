@@ -43,6 +43,10 @@ pipeline {
                 sh 'docker buildx create --name jenkinsbuilders --use || echo "Builder already exists"'
                 sh 'gcloud auth activate-service-account --key-file=$GOOGLE_CREDENTIALS'
                 sh 'gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet'
+
+                echo "Full Image URL: ${IMAGE_URL}"
+                echo "Full Image URL: $IMAGE_URL"
+
                 // Build the image for amd64
                 sh 'docker buildx build --platform linux/amd64 -t $IMAGE_URL --push .'
 
