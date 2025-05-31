@@ -14,7 +14,7 @@ pipeline {
         GOOGLE_CLUSTER_NAME = 'dev-cluster'
         GOOGLE_CLUSTER_ZONE = 'us-central1-a'
         IMAGE_NAME = 'multi-micro-project'
-        IMAGE_TAG = 'latest'
+        IMAGE_TAG = "${BUILD_NUMBER}"
         IMAGE_URL = 'asia-south1-docker.pkg.dev/multi-micro-project/mutli-micro-repo/${IMAGE_NAME}:${IMAGE_TAG}'
         GSA_EMAIL = 'jenkins-gsa@jenkins-gke-project-457719.iam.gserviceaccount.com'
         KSA_NAME = 'ksa'
@@ -44,7 +44,7 @@ pipeline {
                 sh 'gcloud auth activate-service-account --key-file=$GOOGLE_CREDENTIALS'
                 sh 'gcloud auth configure-docker asia-south1-docker.pkg.dev --quiet'
                 // Build the image for amd64
-                sh 'docker buildx build --platform linux/amd64 -t $IMAGE_URL:${BUILD_NUMBER} --push .'
+                sh 'docker buildx build --platform linux/amd64 -t $IMAGE_URL --push .'
 
             }
         }
