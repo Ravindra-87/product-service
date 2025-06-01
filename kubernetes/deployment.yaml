@@ -4,7 +4,7 @@ metadata:
   name:  product-service-project
   namespace: dn
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: product-service-project
