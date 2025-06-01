@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class ProductServiceImpl implements  ProductService{
@@ -25,5 +27,19 @@ public class ProductServiceImpl implements  ProductService{
         productRepository.save(product);
 
         return product.getProductId();
+    }
+
+    @Override
+    public Product fecthProduct(Long productId) {
+
+
+        Product product=productRepository.getProductByProductId(productId).get(0);
+        return product;
+    }
+
+    @Override
+    public List<Product> getProducts() {
+
+        return productRepository.findAll();
     }
 }
