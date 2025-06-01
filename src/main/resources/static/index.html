@@ -138,12 +138,12 @@
 </head>
 <body>
 
-<h2>Product Catalog</h2>
+<h2 class="product-title">📦 Product Catalog</h2>
 <div id="result">Loading products...</div>
 
 <script>
     function fetchProducts() {
-        fetch('http://34.132.221.101:30081/app/fetchAll')
+        fetch('http://34.44.85.24/:30081/app/fetchAll')
             .then(response => {
                 if (!response.ok) throw new Error('Failed to fetch products');
                 return response.json();
