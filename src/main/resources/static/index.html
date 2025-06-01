@@ -134,37 +134,38 @@
             margin-top: 40px;
             user-select: none;
         }
-        .product-title {
+        .animated-title {
             font-size: 2.4rem;
             font-weight: 800;
             margin-bottom: 40px;
             text-align: center;
-            background: linear-gradient(90deg, #6366f1, #ec4899, #facc15); /* Indigo → Pink → Yellow */
+            background: linear-gradient(90deg, #ef4444, #3b82f6, #10b981);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: bounceIn 1s ease-out forwards, colorShift 6s infinite linear;
+            animation: gradientShift 4s ease infinite, slideIn 0.8s ease-out forwards;
             opacity: 0;
         }
 
-        /* Animated text color movement */
-        @keyframes colorShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
-        /* Bounce-in effect */
-        @keyframes bounceIn {
+        @keyframes slideIn {
             0% {
-                transform: translateY(-60px);
+                transform: translateY(-30px);
                 opacity: 0;
-            }
-            60% {
-                transform: translateY(20px);
-                opacity: 1;
             }
             100% {
                 transform: translateY(0);
+                opacity: 1;
             }
         }
 
@@ -172,12 +173,13 @@
 </head>
 <body>
 
-<h2 class="product-title">📦 Product Catalog</h2>
+<h2 class="animated-title">📦 Product Catalog</h2>
+
 <div id="result">Loading products...</div>
 
 <script>
     function fetchProducts() {
-        fetch('http://34.44.85.24:30081/app/fetchAll')
+        fetch('http://34.72.191.12:30081/app/fetchAll')
             .then(response => {
                 if (!response.ok) throw new Error('Failed to fetch products');
                 return response.json();
