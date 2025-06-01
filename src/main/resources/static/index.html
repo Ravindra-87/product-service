@@ -46,6 +46,10 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
         }
 
         .card-hover-zone {
@@ -169,6 +173,20 @@
             }
         }
 
+        .product-card:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+        .product-card:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -179,7 +197,7 @@
 
 <script>
     function fetchProducts() {
-        fetch('http://34.72.191.12:30081/app/fetchAll')
+        fetch('http://34.30.212.22/app/fetchAll')
             .then(response => {
                 if (!response.ok) throw new Error('Failed to fetch products');
                 return response.json();
