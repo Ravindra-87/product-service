@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  jenkins-gke-project
-  namespace: pro-dev
+  name:  product-service-project
+  namespace: dn
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jenkins-gke-project
+      app: product-service-project
   template:
     metadata:
       labels:
-        app: jenkins-gke-project
+        app: product-service-project
     spec:
       # Use the Kubernetes Service Account (KSA)with Workload Identity
       serviceAccountName: ksa  # Ensure this matches your KSA name
       containers:
         # Spring Boot application container
-        - name: jenkins-gke-project
-          image: asia-east1-docker.pkg.dev/jenkins-gke-project-457719/gc-artifact-repo/jenkins-gke-project:tag_version
+        - name: product-service-project
+          image: asia-south1-docker.pkg.dev/multi-micro-project/mutli-micro-repo/product-service-project:tag_version
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
