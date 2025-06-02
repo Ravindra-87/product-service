@@ -6,7 +6,6 @@ pipeline {
     tools {
         maven 'maven-3.9.9' // Use the exact version form tool configuration
     }
-
     environment {
         //credentials for access between jenkins and gcp
         GOOGLE_CREDENTIALS = credentials('gcp-acess-for-jenkins')   // Credential ID for the Google Service Account
@@ -66,7 +65,7 @@ pipeline {
                         gcloud container clusters get-credentials $GOOGLE_CLUSTER_NAME --zone $GOOGLE_CLUSTER_ZONE --project $GOOGLE_PROJECT_ID
 
                         kubectl config set-context --current --namespace=$KSA_NAMESPACE
-                     
+                
                         sed -i "" "s/tag_version/${BUILD_NUMBER_KEY}/" ./kubernetes/deployment.yaml   
                         
                         kubectl apply -f ./kubernetes/deployment.yaml
