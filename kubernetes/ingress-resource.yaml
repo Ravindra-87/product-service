@@ -25,31 +25,3 @@ spec:
                 name: order-project-service
                 port:
                   number: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: k8s-ingress-static
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  ingressClassName: nginx
-  rules:
-    - host: purchasefuture.zapto.org
-      http:
-        paths:
-          - path: /productsinfo
-            pathType: Exact
-            backend:
-              service:
-                name: product-project-service
-                port:
-                  number: 80
-          - path: /ordersinfo
-            pathType: Exact
-            backend:
-              service:
-                name: order-project-service
-                port:
-                  number: 80
