@@ -12,14 +12,14 @@ spec:
       http:
         paths:
           - path: /products
-            pathType: prefix
+            pathType: Prefix
             backend:
               service:
                 name: product-project-service
                 port:
                   number: 80
           - path: /orders
-            pathType: prefix
+            pathType: Prefix
             backend:
               service:
                 name: order-project-service
