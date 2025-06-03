@@ -4,7 +4,7 @@ metadata:
   name: product-project-service
   namespace: dn
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: product-service-project
   ports:
