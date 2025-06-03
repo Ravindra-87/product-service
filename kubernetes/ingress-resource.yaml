@@ -19,3 +19,11 @@ spec:
                name: product-project-service
                port:
                  number: 80
+
+          - path: /orders
+            pathType: Exact
+            backend:
+              service:
+                name: order-project-service
+                port:
+                  number: 80
