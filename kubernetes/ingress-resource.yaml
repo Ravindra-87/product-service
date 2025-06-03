@@ -2,26 +2,27 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: k8s-ingress-api
+  name: k8s-ingress
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx
   rules:
     - host: purchasefuture.zapto.org
       http:
         paths:
-          - path: /products
+          - path: /products(/|$)(.*)
             pathType: Prefix
             backend:
               service:
                 name: product-project-service
                 port:
                   number: 80
-          - path: /orders
+          - path: /()
             pathType: Prefix
             backend:
               service:
-                name: order-project-service
-                port:
-                  number: 80
+               name: product-project-service
+               port:
+                 number: 80
