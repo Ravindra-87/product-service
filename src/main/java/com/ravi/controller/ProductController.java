@@ -32,7 +32,6 @@ public class ProductController {
         Long productId=productService.addProduct(productRequest);
         return new ResponseEntity<>(productId, HttpStatus.CREATED) ;
     }
-
     @GetMapping("/fetchProduct/{productId}")
     public ResponseEntity<Product>  fetchProduct(@PathVariable Long productId) {
 
