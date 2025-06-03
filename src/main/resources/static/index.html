@@ -197,7 +197,7 @@
 
 <script>
     function fetchProducts() {
-        fetch('http://34.118.226.93/products/fetchAll')
+        fetch('http://localhost:8081/app/fetchAll')
             .then(response => {
                 if (!response.ok) throw new Error('Failed to fetch products');
                 return response.json();
