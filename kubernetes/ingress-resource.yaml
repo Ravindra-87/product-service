@@ -9,6 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
+    - host: techfuture.duckdns.org
     - http:
         paths:
           - path: /products(/|$)(.*)
