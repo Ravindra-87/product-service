@@ -19,6 +19,20 @@ spec:
                 name: product-project-service
                 port:
                   number: 80
+          - path: /orders(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: order-service-project
+                port:
+                  number: 80
+          - path: /orders
+            pathType: Prefix
+            backend:
+              service:
+                name: order-service-project
+                port:
+                  number: 80
           - path: /()
             pathType: Prefix
             backend:
