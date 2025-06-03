@@ -11,7 +11,7 @@ spec:
     - host: purchasefuture.zapto.org
       http:
         paths:
-          - path: /product
+          - path: /products
             pathType: Prefix
             backend:
               service:
