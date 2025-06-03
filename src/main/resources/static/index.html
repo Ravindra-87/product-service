@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Product Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 1em 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1em;
+        }
+
+        .hero {
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 3em 1em;
+        }
+
+        .hero button {
+            padding: 0.8em 1.2em;
+            background: white;
+            color: #4CAF50;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .products {
+            padding: 2em;
+            text-align: center;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1em;
+            margin-top: 1em;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #ddd;
+            width: 200px;
+            padding: 1em;
+            border-radius: 5px;
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .product-card button {
+            margin-top: 0.5em;
+            padding: 0.5em;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div><strong>MyStore</strong></div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Discover Amazing Products</h1>
+    <p>Quality you can trust. Delivered to your door.</p>
+    <button>Shop Now</button>
+</section>
+
+<section class="products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://via.placeholder.com/200x150" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <button>Buy</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/200x150" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <button>Buy</button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/200x150" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <button>Buy</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    &copy; 2025 MyStore. All rights reserved.
+</footer>
+
+</body>
+</html>
