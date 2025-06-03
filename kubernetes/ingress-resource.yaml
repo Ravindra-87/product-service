@@ -11,15 +11,15 @@ spec:
     - host: purchasefuture.zapto.org
       http:
         paths:
-          - path: /products(/|$)(.*)
-            pathType: Exact
+          - path: /products
+            pathType: prefix
             backend:
               service:
                 name: product-project-service
                 port:
                   number: 80
-          - path: /orders(/|$)(.*)
-            pathType: Exact
+          - path: /orders
+            pathType: prefix
             backend:
               service:
                 name: order-project-service
