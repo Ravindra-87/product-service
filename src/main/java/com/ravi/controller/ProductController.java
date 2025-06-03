@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @Slf4j
 @RestController
-@RequestMapping("/app")
+@RequestMapping("/products")
 public class ProductController {
 
 
