@@ -12,13 +12,6 @@ spec:
     - host: purchasefuture.zapto.org
       http:
         paths:
-          - path: /products(/|$)(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: product-project-service
-                port:
-                  number: 80
           - path: /()
             pathType: Prefix
             backend:
@@ -26,10 +19,3 @@ spec:
                name: product-project-service
                port:
                  number: 80
-          - path: /orders(/|$)(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: order-project-service
-                port:
-                  number: 80
