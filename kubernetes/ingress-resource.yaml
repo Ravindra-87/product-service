@@ -12,17 +12,10 @@ spec:
   rules:
     - http:
         paths:
-          - path: /products/fetchAll(/|$)(.*)
+          - path: /products(/|$)(.*)
             pathType: Prefix
             backend:
               service:
                 name: product-project-service
-                port:
-                  number: 80
-          - path: /orders/fetchAll(/|$)(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: order-project-service
                 port:
                   number: 80
