@@ -13,14 +13,14 @@ spec:
     - host: purchasefuture.zapto.org
       http:
         paths:
-          - path: /orders
+          - path: /ordersinfo
             pathType: Exact
             backend:
               service:
                 name: order-project-service
                 port:
                   number: 80
-          - path: /products
+          - path: /productsinfo
             pathType: Exact
             backend:
               service:
