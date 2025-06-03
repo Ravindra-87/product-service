@@ -26,13 +26,6 @@ spec:
                 name: order-project-service
                 port:
                   number: 80
-          - path: /orders
-            pathType: Prefix
-            backend:
-              service:
-                name: order-project-service
-                port:
-                  number: 80
           - path: /()
             pathType: Prefix
             backend:
