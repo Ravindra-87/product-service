@@ -47,7 +47,7 @@ public class ProductController {
         log.info("fetch All Products{}");
 
         return Optional.ofNullable(productService.getProducts())
-                .map(products -> new ResponseEntity<>(products, HttpStatus.CREATED))
+                .map(products -> new ResponseEntity<>(products, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(Collections.emptyList(), HttpStatus.NO_CONTENT));
     }
 }
