@@ -178,7 +178,7 @@
 
 <script>
     function fetchProducts() {
-        fetch('http://purchasefuture.zapto.org/products/fetchAll')
+        fetch('http://purchasingfuture.zapto.org/products/fetchAll')
             .then(response => {
                 if (!response.ok) throw new Error('Failed to fetch products');
                 return response.json();
