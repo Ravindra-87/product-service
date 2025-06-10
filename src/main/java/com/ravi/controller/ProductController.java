@@ -27,7 +27,6 @@ public class ProductController {
     @PostMapping("/addProduct")
     public ResponseEntity<Long>  addProduct(@RequestBody ProductRequest productRequest) {
 
-
         log.info("Add product request: {}", productRequest.toString());
         Long productId=productService.addProduct(productRequest);
         return new ResponseEntity<>(productId, HttpStatus.CREATED) ;
