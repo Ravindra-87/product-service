@@ -13,7 +13,6 @@ pipeline {
         //GCP details
         GOOGLE_PROJECT_ID = 'multi-micro-project'
         GSA_EMAIL = 'jenkins-gsa@jenkins-gke-project-457719.iam.gserviceaccount.com'
-
         //cluster details
         GOOGLE_CLUSTER_NAME = 'dev-cluster'
         GOOGLE_CLUSTER_ZONE = 'us-central1-a'
