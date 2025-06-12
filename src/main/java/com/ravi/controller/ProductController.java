@@ -39,6 +39,7 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatus.CREATED) ;
     }
 
+
     @GetMapping("/fetchAll")
     public ResponseEntity<List<Product>>  fetchAllProducts() {
 
